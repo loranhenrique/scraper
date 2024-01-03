@@ -3,7 +3,6 @@ const pageController = require('./src/pageController');
 const qrcode = require('qrcode-terminal');
 const wppw = require('whatsapp-web.js');
 
-
 const client = new wppw.Client({
     authStrategy: new wppw.LocalAuth()
 });
@@ -13,9 +12,10 @@ client.on('qr', (qr) => {
 });
 
 client.on('ready', async () => {
+    console.log('WhatsApp Web está pronto!');
     const chats = await client.getChats();
     const chatTips = chats.find(chat => chat.name.includes('Tips'));
-    //chatTips.sendMessage('☀️ Bom dia galerinha\n🍀 Iniciando os trabalhos do bot Tips!\n🚨 Assim que surgir uma nova tip, eu te aviso!');
+    chatTips.sendMessage('☀️ Bom dia galerinha\n🍀 Iniciando os trabalhos do bot Tips!\n🚨 Assim que surgir uma nova tip, eu te aviso!');
 
     let browserInstance = browserObject.startBrowser();
 

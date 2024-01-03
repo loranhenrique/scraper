@@ -6,7 +6,13 @@ async function scraper(page) {
         return ultimoElemento ? ultimoElemento.innerText : null;
     });
 
-    return terminalOutput;
+    if(!terminalOutput) return null;
+
+    const antesOddMinimaMatch = terminalOutput.match(/([\s\S]*)@/);
+    const tamanhoEntrada = antesOddMinimaMatch[1].length;
+    const valorConvertido = antesOddMinimaMatch[1].concat(terminalOutput.slice(tamanhoEntrada, tamanhoEntrada + 5));
+
+    return valorConvertido;
 }
 
 

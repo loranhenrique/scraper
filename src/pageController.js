@@ -8,8 +8,6 @@ async function scrapeAll(pageInstance, chatTips) {
         const page = await pageInstance;
         const chat = await chatTips;
         const entrada = await pageScraper.scraper(page);
-
-        console.log(entrada);
         
         if (!entrada || entrada === ultimaTipEnviada) return;
 

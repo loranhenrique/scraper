@@ -1,5 +1,5 @@
 async function login(page) {
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    await new Promise(resolve => setTimeout(resolve, 4000));
     await page.click('.c-ripple');
 
     await new Promise(resolve => setTimeout(resolve, 2000));
@@ -12,7 +12,6 @@ async function login(page) {
     chat.length > 0 
         ? await chat[0].click()
         : console.log('Chat não encontrado!');
-    
 }
 
 module.exports = { login }
