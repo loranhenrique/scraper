@@ -36,8 +36,8 @@ function cobrarPagamentoComHorario() {
     const diaAtual = dataAtual.getDate();
     const horarioAtual = dataAtual.getHours();
 
-    const estaEntre10e19 = diaAtual >= 4 && diaAtual <= 19;
-    const is22Horas = horarioAtual === 23;
+    const estaEntre10e19 = diaAtual >= 10 && diaAtual <= 19;
+    const is22Horas = horarioAtual === 22;
 
     if (estaEntre10e19 && is22Horas) return true;
     return false;
@@ -47,7 +47,7 @@ function cobrarPagamentoSemHorario() {
     const dataAtual = new Date();
     const diaAtual = dataAtual.getDate();
 
-    const estaEntre10e19 = diaAtual >= 4 && diaAtual <= 19;
+    const estaEntre10e19 = diaAtual >= 10 && diaAtual <= 19;
     if (estaEntre10e19) return true;
 
     return false;
