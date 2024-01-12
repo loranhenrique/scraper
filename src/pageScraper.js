@@ -8,16 +8,10 @@ async function scraper(page) {
 
     if(!terminalOutput) return null;
     if(terminalOutput.includes("RENDIMENTO DO MÊS")) {
-        console.log(terminalOutput.slice(0, -15));
         return terminalOutput.slice(0, -15);
     };
 
     const antesOddMinimaMatch = terminalOutput.match(/([\s\S]*)@/);
-
-    if(!antesOddMinimaMatch[1]) {
-        console.log(terminalOutput);
-    }
-    
     const tamanhoEntrada = antesOddMinimaMatch[1].length;
     const valorConvertido = antesOddMinimaMatch[1].concat(terminalOutput.slice(tamanhoEntrada, tamanhoEntrada + 5));
 
